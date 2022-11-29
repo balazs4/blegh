@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blegh</title>
+  </head>
+  <body>
+    <h1> Wed Oct 26 15:26:35 CEST 2022 </h1>
+    <pre id="api"></pre>
+  </body>
+  <script>
+    window.addEventListener('load', (event) => {
+      fetch('/api/')
+        .then((res) => res.json())
+        .then((content) => {
+          const json = JSON.stringify(content, null, 2);
+          document.querySelector('#api').innerText = json;
+        })
+        .catch(console.error);
+    });
+  </script>
+</html>
